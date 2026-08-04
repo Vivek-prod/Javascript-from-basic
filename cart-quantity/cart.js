@@ -1,1 +1,1 @@
-let cartquantity = 0;
+const cartquantity = 0;
