@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dom-project.js"></script>
+    <style>
+        
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+         
+        .button1{
+            color: white;
+            background-color: black;
+            border-radius: 50px;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;  
+        }
+
+        .is-sub{
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>YOUTUBE SUBSCRIBE BUTTON </h2>
+    <button onclick="subscribe()"class="js-sub button1" title="subscribe">SUBSCRIBE</button>
+
+    <script>
+
+        function subscribe() {
+                const buttonelement=document.querySelector('.js-sub')
+
+        if (buttonelement.innerText==='SUBSCRIBE'){
+            buttonelement.innerText='SUBSCRIBED';
+            buttonelement.classList.add('is-sub');
+
+        }else{
+            buttonelement.innerText='SUBSCRIBE';
+            buttonelement.classList.remove('is-sub');
+        };
+           
+        }
+    </script>
+</body>
+</html>
