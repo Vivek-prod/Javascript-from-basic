@@ -3,7 +3,7 @@ const paper = document.getElementById("paper");
 const scissor = document.getElementById("scissor");
 const reset = document.getElementById("reset");
 
-const choice = ["rock", "paper", "scissors"];
+const choice = ["rock", "paper", "scissor"];
 
 let scores = JSON.parse(localStorage.getItem("score")) || {
   player: 0,
@@ -34,7 +34,7 @@ function playGame(playermove) {
       result = "tie";
     } else if (randomchoice === "paper") {
       result = "lose";
-    } else if (randomchoice === "scissors") {
+    } else if (randomchoice === "scissor") {
       result = "win";
     }
   }
@@ -43,7 +43,7 @@ function playGame(playermove) {
       result = "win";
     } else if (randomchoice === "paper") {
       result = "tie";
-    } else if (randomchoice === "scissors") {
+    } else if (randomchoice === "scissor") {
       result = "lose";
     }
   }
@@ -52,7 +52,7 @@ function playGame(playermove) {
       result = "lose";
     } else if (randomchoice === "paper") {
       result = "win";
-    } else if (randomchoice === "scissors") {
+    } else if (randomchoice === "scissor") {
       result = "tie";
     }
   }
@@ -91,8 +91,10 @@ function Results(result) {
 }
 
 function moves(a, b) {
-  document.querySelector(".js-moves").innerHTML = `YOU CHOSE ${a}
-COMPUTER CHOSE ${b}`;
+  document.querySelector(".js-moves").innerHTML = `you
+        <img src="images/${a}.jfif" class="move-icon">
+        <img src="images/${b}.jfif" class="move-icon">
+        computer`;
 }
 
 reset.addEventListener("click", () => {
