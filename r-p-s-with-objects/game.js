@@ -5,14 +5,11 @@ const reset = document.getElementById("reset");
 
 const choice = ["rock", "paper", "scissors"];
 
-let scores = JSON.parse(localStorage.getItem("score"));
-if (scores === null) {
-  scores = {
-    player: 0,
-    pc: 0,
-    tie: 0,
-  };
-}
+let scores = JSON.parse(localStorage.getItem("score")) || {
+  player: 0,
+  pc: 0,
+  tie: 0,
+};
 
 rock.addEventListener("click", () => {
   playGame("rock");
