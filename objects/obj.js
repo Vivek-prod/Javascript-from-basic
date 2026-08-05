@@ -33,3 +33,9 @@ console.log(product.rating.stars);
 product.fun();
 
 console.log(typeof console.log);
+
+console.log(JSON.stringify(product)); //js obejct to json
+
+const jsonString = JSON.stringify(product);
+
+console.log(JSON.parse(jsonString)); //json to js object
