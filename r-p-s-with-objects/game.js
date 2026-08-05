@@ -5,7 +5,14 @@ const reset = document.getElementById("reset");
 
 const choice = ["rock", "paper", "scissors"];
 
-const scores = JSON.parse(localStorage.getItem("score"));
+let scores = JSON.parse(localStorage.getItem("score"));
+if (scores === null) {
+  scores = {
+    player: 0,
+    pc: 0,
+    tie: 0,
+  };
+}
 
 rock.addEventListener("click", () => {
   playGame("rock");
@@ -73,6 +80,7 @@ reset.addEventListener("click", () => {
   scores.pc = 0;
   scores.player = 0;
   scores.tie = 0;
+  localStorage.removeItem("score");
   alert(`GAME IS RESET
 
 YOU:${scores.player} 
