@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dom.js" defer></script>
+
+</head>
+<body>
+
+    <h1>AMAZON SHOPPING</h1>
+    <p>order under 40rs = +10rs shipping</p>
+    <p>order over 40rs = free shipping</p>
+
+    <input placeholder="COST OF ORDER" class="js-cost" onkeydown="costkeydown(event)">
+    
+    <button onclick="
+    CALCULATEtotal()
+    " >CALCULATE</button>
+
+    <p class="total"></p>
+
+    <script>
+        function CALCULATEtotal() {
+            const inputelement=document.querySelector('.js-cost')
+            let cost= Number(inputelement.value);
+            if (cost<=40){
+
+                cost=cost + 10;
+            }
+            console.log(cost);
+
+            document.querySelector('.total').innerHTML=`TOTAL:${cost}`;
+            document.querySelector('.js-cost').value='';
+            
+
+            
+        }
+
+        function costkeydown() {
+
+            if (event.key==='Enter'){
+                CALCULATEtotal()
+                document.querySelector('.js-cost').value=''
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>
