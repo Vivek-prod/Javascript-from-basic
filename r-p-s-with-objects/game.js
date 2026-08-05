@@ -5,68 +5,77 @@ const reset = document.getElementById("reset");
 
 const choice = ["rock", "paper", "scissors"];
 
-let player = 0;
-let pc = 0;
-let tie = 0;
+const scores = JSON.parse(localStorage.getItem("score"));
 
 rock.addEventListener("click", () => {
-  const randomchoice = choice[Math.floor(Math.random() * choice.length)];
-  console.log(randomchoice);
-  if (randomchoice === "rock") {
-    tie += 1;
-    alert(`YOU CHOSE ROCK, COMPUTER CHOSE ROCK SO IT'S A TIE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "paper") {
-    pc += 1;
-    alert(`YOU CHOSE ROCK, COMPUTER CHOSE PAPER SO YOU LOSE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "scissors") {
-    player += 1;
-    alert(`YOU CHOSE ROCK, COMPUTER CHOSE SCISSOR SO YOU WIN
-YOU:${player} PC:${pc} TIE:${tie}`);
-  }
+  playGame("rock");
 });
 
 paper.addEventListener("click", () => {
-  const randomchoice = choice[Math.floor(Math.random() * choice.length)];
-  console.log(randomchoice);
-  if (randomchoice === "rock") {
-    player += 1;
-    alert(`YOU CHOSE PAPER , COMPUTER CHOSE ROCK SO YOU WIN
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "paper") {
-    tie += 1;
-    alert(`YOU CHOSE PAPER , COMPUTER CHOSE PAPER SO IT'S A TIE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "scissors") {
-    pc += 1;
-    alert(`YOU CHOSE PAPER , COMPUTER CHOSE SCISSOR SO YOU LOSE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  }
+  playGame("paper");
 });
 
 scissor.addEventListener("click", () => {
-  const randomchoice = choice[Math.floor(Math.random() * choice.length)];
-  console.log(randomchoice);
-  if (randomchoice === "rock") {
-    pc += 1;
-    alert(`YOU CHOSE SCISSOR , COMPUTER CHOSE ROCK SO YOU LOSE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "paper") {
-    player += 1;
-    alert(`YOU CHOSE SCISSOR , COMPUTER CHOSE PAPER SO YOU WIN
-YOU:${player} PC:${pc} TIE:${tie}`);
-  } else if (randomchoice === "scissors") {
-    tie += 1;
-    alert(`YOU CHOSE SCISSOR , COMPUTER CHOSE SCISSOR SO IT'S A TIE
-YOU:${player} PC:${pc} TIE:${tie}`);
-  }
+  playGame("scissor");
 });
 
+function playGame(playermove) {
+  const randomchoice = choice[Math.floor(Math.random() * choice.length)];
+  let result = "";
+
+  if (playermove === "rock") {
+    if (randomchoice === "rock") {
+      result = "tie";
+    } else if (randomchoice === "paper") {
+      result = "lose";
+    } else if (randomchoice === "scissors") {
+      result = "win";
+    }
+  }
+  if (playermove === "paper") {
+    if (randomchoice === "rock") {
+      result = "win";
+    } else if (randomchoice === "paper") {
+      result = "tie";
+    } else if (randomchoice === "scissors") {
+      result = "lose";
+    }
+  }
+  if (playermove === "scissor") {
+    if (randomchoice === "rock") {
+      result = "lose";
+    } else if (randomchoice === "paper") {
+      result = "win";
+    } else if (randomchoice === "scissors") {
+      result = "tie";
+    }
+  }
+
+  if (result === "lose") {
+    scores.pc += 1;
+  } else if (result === "win") {
+    scores.player += 1;
+  } else if (result === "tie") {
+    scores.tie += 1;
+  }
+  alert(`YOU CHOSE ${playermove}
+COMPUTER CHOSE ${randomchoice} 
+
+${result}
+
+YOU:${scores.player}
+PC:${scores.pc} 
+TIE:${scores.tie}`);
+  localStorage.setItem("score", JSON.stringify(scores));
+}
+
 reset.addEventListener("click", () => {
-  pc = 0;
-  player = 0;
-  tie = 0;
+  scores.pc = 0;
+  scores.player = 0;
+  scores.tie = 0;
   alert(`GAME IS RESET
-YOU:${player} PC:${pc} TIE:${tie}`);
+
+YOU:${scores.player} 
+PC:${scores.pc} 
+TIE:${scores.tie}`);
 });
