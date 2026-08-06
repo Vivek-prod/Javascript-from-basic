@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dom.js" defer></script>
+
+    <style>
+        body{
+            background-color: rgb(25,25,25);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .title{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .move-icon{
+            height: 50px;
+        }
+        .btn{
+            background-color:  rgb(25,25,25);
+            border: 3px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .results{
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px;
+
+        }
+
+        .score{
+            margin-top: 60px;
+        }
+
+        .reset,.auto-but{
+            border: none;
+            background-color: white;
+            color: black;
+            padding: 9px 15px;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <h2 class="title">ROCK PAPER SCISSOR</h2>
+
+    <button id="rock" title="booh" class="btn"><img src="images/rock.jfif" class="move-icon"></button>
+    <button id="paper" title="bahh" class="btn"><img src="images/paper.jfif" class="move-icon"></button>
+    <button id="scissor" title="blahhh" class="btn"><img src="images/scissor.jfif" class="move-icon"></button>
+    
+    <p class="js-result results"></p>
+
+    <p class="js-moves"></p>
+
+    <p class="js-score score" ></p>
+
+    <button id="reset" title="blahhh" class="reset">RESET</button>
+    <button class="auto-but" onclick="
+    autoplay()">AUTOPLAY</button>
+
+
+    
+
+
+    
+</body>
+</html>
