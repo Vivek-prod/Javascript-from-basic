@@ -58,3 +58,11 @@ setInterval(function () {
   console.log("interval");
 }, 3000);
 */
+
+const a = [1, 2, 3];
+
+a.forEach(function (value, index, array) {
+  console.log(value);
+  console.log(index);
+  console.log(array);
+});
