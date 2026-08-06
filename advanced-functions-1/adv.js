@@ -62,6 +62,9 @@ setInterval(function () {
 const a = [1, 2, 3];
 
 a.forEach(function (value, index, array) {
+  if (value === 2) {
+    return;
+  }
   console.log(value);
   console.log(index);
   console.log(array);
