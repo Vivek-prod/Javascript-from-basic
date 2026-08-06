@@ -38,7 +38,7 @@ for (let i = 0; i <= todolist.length; i++) { //todolist.lenght-1 will do the sam
   const value = todolist[i];
   console.log(value);
 }
-*/
+
 
 const nums = [1, 1, 3];
 
@@ -56,3 +56,49 @@ for (let i = 0; i < nums.length; i++) {
   numDoubled.push(num);
 }
 console.log(numDoubled);
+*/
+
+const a1 = [1, 2, 3];
+const a2 = a1.slice();
+a2.push(4);
+console.log(a2);
+console.log(a1);
+
+const [firstvalue, secondvalue, thirdvalue] = [1, 2, 3];
+
+console.log(typeof firstvalue);
+
+for (let i = 1; i <= 10; i++) {
+  if (i % 3 === 0) {
+    continue; //skip divisible by 3
+  }
+  console.log(i);
+  if (i === 8) {
+    break; //stop at 8
+  }
+}
+
+let i = 1;
+while (i <= 10) {
+  if (i % 3 === 0) {
+    i++;
+    continue;
+  }
+  console.log(i);
+  i++;
+}
+
+function doublearray(nums) {
+  const numDoubled = [];
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i] * 2;
+    if (num === 0) {
+      // break
+      return numDoubled;
+    }
+    numDoubled.push(num);
+  }
+  return numDoubled;
+}
+
+console.log(doublearray([1, 2, 3, 0, 6]));
