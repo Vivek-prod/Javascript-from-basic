@@ -10,12 +10,14 @@
 </head>
 <body>
     <h1>TO DO PRACTICE-1</h1>
-    <input placeholder="TODO name" class="js-input" onkeydown="inputkeydown(event)">
-    <input type="date" class="js-date">
-    <button onclick="
-    addtodo()
-    ">Add</button>
-    <div class="js-tod-list"></div>
+    <div class="todo-input-grid">
+        <input placeholder="TODO name" class="js-input name-input" onkeydown="inputkeydown(event)">
+        <input type="date" class="js-date due-date-inpute">
+        <button onclick="
+        addtodo()
+        " class="add-todo-button">Add</button>
+    </div>
+    <div class="js-tod-list todo-grid"></div>
 
 
 

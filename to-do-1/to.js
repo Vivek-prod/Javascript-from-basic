@@ -7,7 +7,6 @@ function addtodo() {
   const todo = inputElement.value;
   if (todo && datee) {
     todolist.push({ name: `${todo}`, duedate: `${datee}` });
-    console.log(todolist);
     inputElement.value = "";
     inputdate.value = "";
     rendertodolist();
@@ -32,23 +31,18 @@ function rendertodolist() {
      then instead of using todoname and toduedate just direct use name and duedate
      */
 
-    const html = `<p>
-    ${todoname}
-    ${toDueDate}
-
-
-
-
+    const html = `<div>${todoname}</div>
+    
+    <div>${toDueDate}</div>
 
     <button onclick='
-    
+  
     todolist.splice(${i},1);
     rendertodolist();
     
-    
-    '>delete</button>
+    ' class='delete-button'>delete</button>
 
-    </p>
+
     `;
     todolisthtml += html;
   }
